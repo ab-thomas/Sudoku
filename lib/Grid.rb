@@ -3,7 +3,8 @@ class Grid
   attr_reader :cells
 
   def initialize(puzzle)
-    @cells = puzzle.chars.map { |x| (x.to_i) }
+    @cells = puzzle.chars.map{|c|  Cell.new(c.to_i) }
+
   end
 
   def rows
@@ -22,6 +23,19 @@ class Grid
        @cells[i + 18], @cells[i + 19], @cells[i + 20]]
      end
   end
+
+  def neighbours_for(cell)
+    [rows,columns,boxes].map {|col| select_in(cell, col)}.flatten.uniq
+  end
+
+  def select_in(cell, collection)
+    collection.select {|element| element.include?(cell)}
+  end
+
+  def candidates(cell)
+    (1..9).to_a - neighbours_for(cell).map { |c| c.value }
+  end
+
 end
 
 
