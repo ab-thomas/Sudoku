@@ -1,13 +1,18 @@
 class Grid
-  
-  # itereate over cells
 
   attr_reader :cells
 
   def initialize(puzzle)
-    @cells = puzzle
+    @cells = puzzle.chars.map { |x| (x.to_i) }
   end
+
+  def rows
+    @rows = @cells.each_slice(9).to_a
+  end
+
 end
+
+
 
 
 
