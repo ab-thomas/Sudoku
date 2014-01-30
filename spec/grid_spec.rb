@@ -34,7 +34,9 @@ require 'Grid'
         expect(grid.columns.count).to eq(9)
       end
 
-    
+      it 'should have 9 boxes' do
+        expect(grid.boxes.count).to eq(9)
+      end
 
       
 
