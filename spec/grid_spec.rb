@@ -19,12 +19,24 @@ require 'Grid'
       end
 
       it 'should have 9 rows' do
-        expect(grid.rows.count).to eq 9
+        expect(grid.rows.count).to eq (9)
       end
 
       it 'should have a solved second cell with value 1' do
-        pending
+        expect(grid.cells[1]).to eq(1) 
       end
+
+      it 'should have solved a third cell with value 5' do
+        expect(grid.cells[2]).to eq(5)
+      end
+
+      it 'should have 9 columns' do
+        expect(grid.columns.count).to eq(9)
+      end
+
+    
+
+      
 
     end
   end

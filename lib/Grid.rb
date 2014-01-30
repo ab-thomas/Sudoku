@@ -10,11 +10,11 @@ class Grid
     @rows = @cells.each_slice(9).to_a
   end
 
+  def columns
+    @rows = @cells.each_slice(9).to_a.transpose
+  end
+
 end
-
-
-
-
 
 
 
